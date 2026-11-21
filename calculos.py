@@ -37,3 +37,14 @@ def dias_para_data_futura(data_futura):
         raise ValueError("A data informada não pode estar no passado")
 
     return (futura - hoje).days
+
+
+def dias_desde_data_passada(data_passada):
+    """Retorna quantos dias se passaram desde uma data passada."""
+    passada = _converter_data(data_passada, "Data passada")
+    hoje = date.today()
+
+    if passada > hoje:
+        raise ValueError("A data informada não pode estar no futuro")
+
+    return (hoje - passada).days
